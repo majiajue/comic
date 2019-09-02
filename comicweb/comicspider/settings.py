@@ -22,4 +22,4 @@ def getRule(url):
             return rule
     return None
 
-# print getRule('https://manhua.163.com/source/4316808070150070932')
+# print(getRule('https://manhua.163.com/source/4316808070150070932'))

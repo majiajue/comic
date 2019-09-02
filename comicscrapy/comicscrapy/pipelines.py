@@ -11,7 +11,7 @@ class ComicscrapyPipeline(object):
         dbname = settings["MYSQL_DBNAME"]
         user = settings["MYSQL_USER"]
         passwd = settings["MYSQL_PASSWD"]
-        print host,port,dbname,user,passwd
+        print(host,port,dbname,user,passwd)
         self.db = pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=dbname, charset='utf8')
         self.cur = self.db.cursor()
 
@@ -32,7 +32,7 @@ roast=%(roast)d,last_update_chapter='%(last_update_chapter)s',last_update_time='
             self.db.commit()
             return item
         except:
-            print 'mysql insert exception:'+sql
+            print('mysql insert exception:'+sql)
 
     def close_spider(self,spider):
         self.db.close()

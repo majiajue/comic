@@ -79,4 +79,4 @@ class defaultSpider():
         return recommends
 
 manhua163=defaultSpider('https://manhua.163.com/')
-print manhua163.getRecommend()
+print(manhua163.getRecommend())

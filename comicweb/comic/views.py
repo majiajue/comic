@@ -36,7 +36,7 @@ def index(request):
     recommends=spider.getRecommend()
     comicManager=Comic.comicManager
     for recommend in recommends:
-        print recommend['url']
+        print(recommend['url'])
         # recommend['comicid']=comicManager.get(Q(comic_url=recommend['url'])).id
         comiclist=comicManager.filter(Q(comic_url=recommend['url']))
         if(len(comiclist)==0):
@@ -162,5 +162,5 @@ def search(request):
     k1 = (u'查找结果', comics)
     context = {'comiclist': [k1],
                }
-    print keyword
+    print(keyword)
     return render(request, 'comic/search.html', context)

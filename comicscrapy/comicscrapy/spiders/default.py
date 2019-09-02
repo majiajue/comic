@@ -2,7 +2,7 @@
 import scrapy
 import urllib
 from comicscrapy.items import ComicscrapyItem
-import time
+import timeit
 from comicscrapy import rules
 import sys
 
@@ -22,7 +22,7 @@ class DefaultComicSpider(scrapy.Spider):
     def __init__(self):
         scrapy.Spider.__init__(self)
         self.spider_rule = rules.getRule(self.allowed_domains[0])
-        print self.spider_rule
+        print(self.spider_rule)
 
     def parse(self, response):
         hrefs = response.xpath("//a[contains(@class,'sdiv')]/@href").extract()

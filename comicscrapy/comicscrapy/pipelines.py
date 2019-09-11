@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
 
 import pymysql
-from scrapy.conf import settings
+from comicscrapy.settings import MYSQL_HOST
+from comicscrapy.settings import MYSQL_PORT
+from comicscrapy.settings import MYSQL_DBNAME
+from comicscrapy.settings import MYSQL_USER
+from comicscrapy.settings import MYSQL_PASSWD
 import datetime
 
 class ComicscrapyPipeline(object):
     def __init__(self):
-        host = settings["MYSQL_HOST"]
-        port = settings["MYSQL_PORT"]
-        dbname = settings["MYSQL_DBNAME"]
-        user = settings["MYSQL_USER"]
-        passwd = settings["MYSQL_PASSWD"]
+        host =MYSQL_HOST
+        port = MYSQL_PORT
+        dbname = MYSQL_DBNAME
+        user = MYSQL_USER
+        passwd = MYSQL_PASSWD
         print(host,port,dbname,user,passwd)
         self.db = pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=dbname, charset='utf8')
         self.cur = self.db.cursor()

@@ -2,8 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import random
-
-from settings import USER_AGENTS
+from comicscrapy.settings import USER_AGENTS
 
 # 随机的User-Agent
 class RandomUserAgent(object):

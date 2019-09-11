@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-import urllib
+from urllib.parse import urljoin
 from comicscrapy.spiders.default import DefaultComicSpider
 import json
 
@@ -14,7 +14,7 @@ class TencentmanhuaSpider(DefaultComicSpider):
     def parse(self, response):
         hrefs = response.xpath("//div[contains(@class,'ret-works-cover')]/a/@href").extract()
         for href in hrefs:
-            yield scrapy.Request(urllib.basejoin('https://ac.qq.com/', href), callback=self.detail_parse)
+            yield scrapy.Request(urljoin('https://ac.qq.com/', href), callback=self.detail_parse)
         # yield scrapy.Request('https://ac.qq.com/Comic/comicInfo/id/636578', callback=self.detail_parse)
 
         if self.offset < 793:
